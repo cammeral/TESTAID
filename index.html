@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الإسعافات الأولية المتطور</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        :root {
+            --primary: #2a9d8f;
+            --secondary: #1d3557;
+            --accent: #e63946;
+            --light: #f1faee;
+            --dark: #1a1a2e;
+            --warning: #e9c46a;
+            --danger: #d90429;
+            --medical-blue: #457b9d;
+            --medical-red: #e63946;
+            --medical-green: #2a9d8f;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+        
+        /* خلفية متحركة متطورة */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 18s infinite ease-in-out;
+            filter: blur(2px);
+        }
+        
+        .shape:nth-child(1) {
+            width: 180px;
+            height: 180px;
+            background: var(--medical-green);
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+        
+        .shape:nth-child(2) {
+            width: 250px;
+            height: 250px;
+            background: var(--medical-blue);
+            bottom: 20%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+        
+        .shape:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            background: var(--accent);
+            top: 40%;
+            right: 30%;
+            animation-delay: -10s;
+        }
+        
+        .shape:nth-child(4) {
+            width: 150px;
+            height: 150px;
+            background: var(--warning);
+            bottom: 15%;
+            left: 25%;
+            animation-delay: -7s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(40px, 50px) rotate(60deg);
+            }
+            50% {
+                transform: translate(-50px, 40px) rotate(120deg);
+            }
+            75% {
+                transform: translate(30px, -40px) rotate(180deg);
+            }
+        }
+        
+        /* التصميم العام */
+        .container {
+            width: 95%;
+            max-width: 900px;
+            background: rgba(25, 25, 40, 0.92);
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            padding: 35px;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(69, 123, 157, 0.3);
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--medical-green), var(--medical-blue), var(--accent));
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--light), var(--medical-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            color: #a8dadc;
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .divider {
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--medical-green), var(--medical-blue));
+            margin: 20px auto;
+            border-radius: 3px;
+            box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+        }
+        
+        /* شاشة تسجيل الدخول */
+        .login-screen {
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .logo {
+            font-size: 6rem;
+            color: var(--medical-green);
+            margin: 25px 0;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 20px rgba(42, 157, 143, 0.5);
+            transition: all 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 30px rgba(42, 157, 143, 0.8);
+        }
+        
+        .input-group {
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .input-group label {
+            display: block;
+            text-align: right;
+            margin-bottom: 12px;
+            color: var(--light);
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            background: rgba(25, 35, 60, 0.5);
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--medical-green);
+            box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.3);
+            background: rgba(25, 35, 60, 0.7);
+        }
+        
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--medical-green), var(--medical-blue));
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 800;
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--medical-blue), var(--medical-green));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(42, 157, 143, 0.6);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
+        }
+        
+        /* شاشة الاختبار */
+        .quiz-screen {
+            display: none;
+        }
+        
+        .timer-container {
+            background: rgba(25, 35, 60, 0.6);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--medical-green), var(--accent));
+        }
+        
+        .timer-label {
+            font-size: 1.4rem;
+            color: var(--light);
+            font-weight: 700;
+            margin-left: 20px;
+        }
+        
+        .timer {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--light);
+            animation: heartbeat 1.5s infinite;
+            text-shadow: 0 0 15px rgba(42, 157, 143, 0.7);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        
+        .question-container {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .question-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--medical-green), var(--medical-blue));
+        }
+        
+        .question-number {
+            color: var(--medical-green);
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .question-number i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .question-text {
+            font-size: 1.6rem;
+            color: white;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .question-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .question-video {
+            width: 100%;
+            border-radius: 15px;
+            margin: 20px 0;
+            aspect-ratio: 16/9;
+            background: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(69, 123, 157, 0.3);
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1d3557, #14213d);
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .options-container {
+            margin-top: 25px;
+        }
+        
+        .option {
+            background: rgba(40, 45, 70, 0.6);
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            border-radius: 15px;
+            padding: 18px 25px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option:hover {
+            background: rgba(50, 55, 90, 0.8);
+            transform: translateX(-8px);
+            border-color: var(--medical-green);
+        }
+        
+        .option.selected {
+            background: rgba(42, 157, 143, 0.3);
+            border-color: var(--medical-green);
+            font-weight: 700;
+            color: white;
+            transform: translateX(-10px);
+        }
+        
+        .option.selected::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            color: var(--medical-green);
+            font-size: 1.4rem;
+            animation: checkAppear 0.4s ease;
+        }
+        
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(25, 35, 60, 0.8);
+            border-radius: 50%;
+            margin-left: 15px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--light);
+            border: 2px solid rgba(69, 123, 157, 0.3);
+        }
+        
+        .text-answer {
+            width: 100%;
+            padding: 20px;
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            background: rgba(25, 35, 60, 0.5);
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            color: white;
+            min-height: 150px;
+        }
+        
+        .text-answer:focus {
+            outline: none;
+            border-color: var(--medical-green);
+            box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.3);
+            background: rgba(25, 35, 60, 0.7);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, var(--secondary), #14213d);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 1.2rem;
+            font-weight: 700;
+            flex: 1;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(69, 123, 157, 0.3);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1d3557, #14213d);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(29, 53, 87, 0.5);
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-btn:disabled {
+            background: rgba(100, 100, 120, 0.3);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .nav-btn:disabled:hover::before {
+            opacity: 0;
+        }
+        
+        #submitBtn {
+            background: linear-gradient(135deg, var(--medical-green), #218a7a);
+        }
+        
+        #submitBtn::before {
+            background: linear-gradient(135deg, #2a9d8f, #218a7a);
+        }
+        
+        /* شاشة النتائج */
+        .result-screen {
+            display: none;
+            text-align: center;
+        }
+        
+        .result-icon {
+            font-size: 8rem;
+            color: var(--medical-green);
+            margin: 30px 0;
+            animation: bounce 1.5s infinite alternate;
+            text-shadow: 0 0 25px rgba(42, 157, 143, 0.5);
+        }
+        
+        .result-message {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+        
+        .result-details {
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 35px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(69, 123, 157, 0.3);
+            text-align: right;
+        }
+        
+        .result-details p {
+            margin: 18px 0;
+            font-size: 1.3rem;
+            color: var(--light);
+            line-height: 1.7;
+        }
+        
+        .highlight {
+            font-weight: 800;
+            color: var(--medical-green);
+            text-shadow: 0 0 10px rgba(42, 157, 143, 0.5);
+        }
+        
+        .telegram-info {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 136, 204, 0.2);
+            padding: 10px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border: 1px solid rgba(0, 136, 204, 0.4);
+        }
+        
+        .telegram-info i {
+            color: #0088cc;
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+
+        /* زر إعادة الاختبار */
+        .retry-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--warning), #e76f51);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: 800;
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(233, 196, 106, 0.4);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .retry-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e76f51, var(--warning));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+        
+        .retry-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(233, 196, 106, 0.6);
+        }
+        
+        .retry-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .retry-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 15px rgba(233, 196, 106, 0.4);
+        }
+        
+        /* شهادة الإتمام */
+        .certificate {
+            background: linear-gradient(135deg, #1d3557, #14213d);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 800px;
+            text-align: center;
+            border: 3px solid var(--medical-green);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(42,157,143,0.1) 0%, rgba(25,25,40,0) 70%);
+            z-index: 0;
+        }
+        
+        .certificate h2 {
+            color: var(--medical-green);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .certificate h3 {
+            color: var(--light);
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .certificate p {
+            color: white;
+            font-size: 1.4rem;
+            margin: 15px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .certificate .signature {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .signature div {
+            text-align: center;
+        }
+        
+        .signature div p:first-child {
+            border-top: 2px solid var(--medical-green);
+            padding-top: 10px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        
+        /* شاشة التحميل */
+        .loading-screen {
+            display: none;
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(42, 157, 143, 0.2);
+            border-top: 8px solid var(--medical-green);
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            margin: 0 auto 30px;
+        }
+        
+        .loading-text {
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* الرسوم المتحركة */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+        
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-25px); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes checkAppear {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .logo {
+                font-size: 5rem;
+            }
+            
+            .btn, .nav-btn, .retry-btn {
+                padding: 16px 35px;
+                font-size: 1.1rem;
+            }
+            
+            .question-text {
+                font-size: 1.4rem;
+            }
+            
+            .option {
+                font-size: 1.1rem;
+                padding: 16px 20px;
+            }
+            
+            .timer {
+                font-size: 1.9rem;
+            }
+            
+            .result-message {
+                font-size: 1.9rem;
+            }
+            
+            .certificate h2 {
+                font-size: 2rem;
+            }
+            
+            .certificate h3 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                padding: 14px;
+            }
+            
+            .question-text {
+                font-size: 1.3rem;
+            }
+            
+            .timer-label {
+                font-size: 1.2rem;
+            }
+            
+            .timer {
+                font-size: 1.7rem;
+            }
+            
+            .result-message {
+                font-size: 1.7rem;
+            }
+            
+            .result-icon {
+                font-size: 6rem;
+            }
+            
+            .certificate {
+                padding: 25px 15px;
+            }
+            
+            .certificate h2 {
+                font-size: 1.8rem;
+            }
+            
+            .certificate h3 {
+                font-size: 1.3rem;
+            }
+            
+            .certificate p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية متحركة متطورة -->
+    <div class="background-animation">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <!-- شاشة تسجيل الدخول -->
+    <div class="container">
+        <div class="login-screen" id="loginScreen">
+            <div class="header">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h1>اختبار الإسعافات الأولية المتطور</h1>
+                <div class="divider"></div>
+                <p>اختبار شامل لمبادئ الإسعافات الأولية مع تقنيات حديثة وتأثيرات متطورة</p>
+            </div>
+            
+            <div class="input-group">
+                <label for="studentName"><i class="fas fa-user"></i> اسم الطالب</label>
+                <input type="text" id="studentName" placeholder="أدخل اسمك الكامل">
+                <p id="nameError" style="color: #e63946; display: none; margin-top: 12px; font-size: 1.1rem;">
+                    <i class="fas fa-exclamation-circle"></i> الرجاء إدخال اسمك
+                </p>
+            </div>
+            
+            <button class="btn" id="startBtn">
+                <i class="fas fa-play"></i> بدء الاختبار
+            </button>
+        </div>
+        
+        <!-- شاشة الاختبار -->
+        <div class="quiz-screen" id="quizScreen">
+            <div class="header">
+                <h1>اختبار الإسعافات الأولية</h1>
+                <div class="divider"></div>
+                <p>أجب على الأسئلة التالية في الوقت المحدد</p>
+            </div>
+            
+            <div class="timer-container">
+                <div class="timer-label"><i class="fas fa-clock"></i> الوقت المتبقي:</div>
+                <div class="timer" id="timer">30:00</div>
+            </div>
+            
+            <div class="question-container">
+                <div class="question-number">
+                    <i class="fas fa-question-circle"></i> <span id="questionNumber">السؤال 1 من 20</span>
+                </div>
+                <div class="question-text" id="questionText"></div>
+                
+                <!-- الصورة أو الفيديو سيتم إضافتها ديناميكيًا -->
+                <div id="mediaContainer"></div>
+                
+                <div class="options-container" id="optionsContainer"></div>
+                
+                <div id="textAnswerContainer" style="display: none;">
+                    <textarea class="text-answer" id="textAnswer" placeholder="اكتب إجابتك هنا..."></textarea>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn" disabled>
+                    <i class="fas fa-arrow-right"></i> السابق
+                </button>
+                <button class="nav-btn" id="nextBtn">
+                    التالي <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="nav-btn" id="submitBtn" style="display: none;">
+                    <i class="fas fa-paper-plane"></i> إرسال الإجابات
+                </button>
+            </div>
+        </div>
+        
+        <!-- شاشة التحميل -->
+        <div class="loading-screen" id="loadingScreen">
+            <div class="loader"></div>
+            <div class="loading-text">جاري إرسال النتائج إلى الأستاذ...</div>
+        </div>
+        
+        <!-- شاشة النتائج -->
+        <div class="result-screen" id="resultScreen">
+            <div class="header">
+                <h1>تم إرسال الإجابات بنجاح!</h1>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="result-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <div class="result-message">شكراً <span id="studentNameResult" class="highlight"></span> على إكمال الاختبار</div>
+            
+            <div class="result-details">
+                <p><i class="fas fa-check"></i> تم إرسال إجاباتك بنجاح إلى الأستاذ عبر بوت التليجرام</p>
+                <p><i class="fas fa-history"></i> يمكنك إعادة الاختبار في أي وقت</p>
+                <p><i class="fas fa-hourglass-half"></i> نتيجة الاختبار: <span class="highlight">تحت التصحيح</span></p>
+                <p><i class="fas fa-clock"></i> وقت الانتهاء: <span class="highlight" id="completionTime"></span></p>
+                
+                <div class="telegram-info">
+                    <i class="fab fa-telegram"></i>
+                    <span>تم الإرسال إلى بوت التليجرام بنجاح</span>
+                </div>
+            </div>
+            
+            <!-- شهادة الإتمام -->
+            <div class="certificate">
+                <h2>شهادة إتمام الاختبار</h2>
+                <h3>في الإسعافات الأولية المتقدمة</h3>
+                
+                <p>تم منح هذه الشهادة للسيد/ة</p>
+                <p class="highlight" id="certificateName"></p>
+                <p>تقديراً لإتمامه/ا بنجاح اختبار الإسعافات الأولية المتقدم</p>
+                <p>وذلك في تاريخ <span id="certificateDate" class="highlight"></span></p>
+                
+                <div class="signature">
+                    <div>
+                        <p>التوقيع</p>
+                        <p>مدير البرنامج الطبي</p>
+                    </div>
+                    <div>
+                        <p>التوقيع</p>
+                        <p>المشرف على الاختبار</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="retry-btn" id="retryBtn">
+                <i class="fas fa-redo"></i> إعادة الاختبار
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // بيانات الأسئلة المتطورة مع وسائط متعددة
+        const questions = [
+            {
+                type: "open",
+                question: "ما هي الخطوات الخمس الأساسية للإسعافات الأولية؟",
+                placeholder: "اذكر الخطوات الخمس الأساسية",
+                image: "https://images.unsplash.com/photo-1588614959060-4d144f28a207?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                correctAnswer: "1. تقييم الموقف 2. طلب المساعدة 3. فحص التنفس 4. فحص النبض 5. تقديم العناية اللازمة"
+            },
+            {
+                type: "mcq",
+                question: "ما هو أول إجراء يجب اتخاذه عند الاقتراب من موقع حادث؟",
+                options: [
+                    "بدء الإنعاش القلبي الرئوي",
+                    "تأمين موقع الحادث",
+                    "نقل المصاب فوراً",
+                    "طلب المساعدة الطبية"
+                ],
+                correct: 1,
+                image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "mcq",
+                question: "ما هو المعدل الصحيح لضغطات الصدر في الإنعاش القلبي الرئوي للبالغين؟",
+                options: [
+                    "60-80 ضغطة في الدقيقة",
+                    "100-120 ضغطة في الدقيقة",
+                    "140-160 ضغطة في الدقيقة",
+                    "أكثر من 180 ضغطة في الدقيقة"
+                ],
+                correct: 1,
+                video: true
+            },
+            {
+                type: "mcq",
+                question: "ما هي درجة حرارة الماء المناسبة لعلاج الحروق البسيطة؟",
+                options: [
+                    "ماء بارد (15-25 درجة مئوية)",
+                    "مثلج (أقل من 5 درجات مئوية)",
+                    "فاتر (30-35 درجة مئوية)",
+                    "دافئ (40-45 درجة مئوية)"
+                ],
+                correct: 0,
+                image: "https://images.unsplash.com/photo-1595871465293-9ab6d1c6c9e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "mcq",
+                question: "ما هي المدة القصوى لوضع رباط ضاغط لوقف النزيف؟",
+                options: [
+                    "15 دقيقة",
+                    "30 دقيقة",
+                    "60 دقيقة",
+                    "90 دقيقة"
+                ],
+                correct: 0,
+                image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "mcq",
+                question: "ما هو وضعية التعافي للمصاب فاقد الوعي الذي يتنفس؟",
+                options: [
+                    "الاستلقاء على الظهر",
+                    "الاستلقاء على البطن",
+                    "الوضعية الجانبية",
+                    "الجلوس مستقيماً"
+                ],
+                correct: 2,
+                image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "open",
+                question: "كيف تتصرف عند مواجهة شخص يعاني من نزيف حاد؟",
+                placeholder: "صف الإجراءات الصحيحة",
+                image: "https://images.unsplash.com/photo-1583512603806-077ff240e2d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "open",
+                question: "ما هي علامات السكتة القلبية؟",
+                placeholder: "اذكر 4 علامات رئيسية",
+                correctAnswer: "1. فقدان الوعي 2. توقف التنفس 3. فقدان النبض 4. ازرقاق الجلد"
+            },
+            {
+                type: "mcq",
+                question: "ما هي علامة من علامات توقف التنفس؟",
+                options: [
+                    "ازرقاق الشفاه",
+                    "التعرق الشديد",
+                    "ارتفاع درجة الحرارة",
+                    "احمرار الوجه"
+                ],
+                correct: 0
+            },
+            {
+                type: "mcq",
+                question: "ما هو الإجراء الصحيح للتعامل مع لدغة الأفعى؟",
+                options: [
+                    "مص السم من الجرح",
+                    "ربط الطرف بشدة",
+                    "تثبيت الطرف وطلب المساعدة",
+                    "تشريط الجرح لإخراج السم"
+                ],
+                correct: 2,
+                image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "mcq",
+                question: "ما هي مدة الضغط الموصى بها عند النزيف الشديد؟",
+                options: [
+                    "حتى يتوقف النزيف",
+                    "5 دقائق",
+                    "10 دقائق",
+                    "15 دقيقة"
+                ],
+                correct: 0
+            },
+            {
+                type: "mcq",
+                question: "ما هو الإجراء الأول عند التعامل مع إصابة العين؟",
+                options: [
+                    "فرك العين",
+                    "غسل العين بالماء",
+                    "استخدام مرهم",
+                    "تغطية العينين معاً"
+                ],
+                correct: 3
+            },
+            {
+                type: "mcq",
+                question: "ما هي درجة حرارة الجسم التي تعتبر حمى وتستدعي عناية طبية للبالغين؟",
+                options: [
+                    "37.5 درجة مئوية",
+                    "38 درجة مئوية",
+                    "39 درجة مئوية",
+                    "40 درجة مئوية"
+                ],
+                correct: 2
+            },
+            {
+                type: "open",
+                question: "كيف يتم إجراء الإنعاش القلبي الرئوي للبالغين؟",
+                placeholder: "صف الخطوات بالتفصيل",
+                video: true
+            },
+            {
+                type: "open",
+                question: "ما هي الإجراءات اللازمة عند التعامل مع حرق من الدرجة الثانية؟",
+                placeholder: "اذكر 5 إجراءات أساسية",
+                image: "https://images.unsplash.com/photo-1623846547660-b9f6e24f1e7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "open",
+                question: "كيف تتعامل مع حالة اختناق لشخص بالغ؟",
+                placeholder: "صف تقنية هيمليك",
+                video: true
+            },
+            {
+                type: "open",
+                question: "ما هي أعراض الصدمة الإنتانية؟",
+                placeholder: "اذكر 5 أعراض"
+            },
+            {
+                type: "open",
+                question: "كيف تتصرف عند مواجهة شخص مصاب بنوبة صرع؟",
+                placeholder: "اذكر الإجراءات الصحيحة"
+            },
+            {
+                type: "open",
+                question: "ما هي خطوات التعامل مع الكسور المفتوحة؟",
+                placeholder: "صف الإجراءات خطوة بخطوة",
+                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                type: "open",
+                question: "ما هي علامات الجفاف الشديد؟",
+                placeholder: "اذكر 5 علامات"
+            }
+        ];
+        
+        // عناصر DOM
+        const loginScreen = document.getElementById('loginScreen');
+        const quizScreen = document.getElementById('quizScreen');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const resultScreen = document.getElementById('resultScreen');
+        const studentNameInput = document.getElementById('studentName');
+        const nameError = document.getElementById('nameError');
+        const startBtn = document.getElementById('startBtn');
+        const timerElement = document.getElementById('timer');
+        const questionNumberElement = document.getElementById('questionNumber');
+        const questionTextElement = document.getElementById('questionText');
+        const mediaContainer = document.getElementById('mediaContainer');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const textAnswerContainer = document.getElementById('textAnswerContainer');
+        const textAnswerElement = document.getElementById('textAnswer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const studentNameResult = document.getElementById('studentNameResult');
+        const certificateName = document.getElementById('certificateName');
+        const certificateDate = document.getElementById('certificateDate');
+        const completionTime = document.getElementById('completionTime');
+        const retryBtn = document.getElementById('retryBtn');
+        
+        // متغيرات حالة التطبيق
+        let currentQuestion = 0;
+        let studentName = "";
+        let answers = Array(questions.length).fill(null);
+        let timer;
+        let timeLeft = 1800; // 30 دقيقة بالثواني (1800 ثانية)
+        
+        // بدء الاختبار
+        startBtn.addEventListener('click', () => {
+            studentName = studentNameInput.value.trim();
+            
+            if (!studentName) {
+                nameError.style.display = 'block';
+                studentNameInput.style.borderColor = '#e63946';
+                return;
+            }
+            
+            nameError.style.display = 'none';
+            studentNameInput.style.borderColor = '#2a9d8f';
+            
+            loginScreen.style.display = 'none';
+            quizScreen.style.display = 'block';
+            
+            loadQuestion();
+            startTimer();
+        });
+        
+        // تحميل السؤال الحالي
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            
+            questionNumberElement.textContent = `السؤال ${currentQuestion + 1} من ${questions.length}`;
+            questionTextElement.textContent = question.question;
+            
+            // مسح الوسائط السابقة
+            mediaContainer.innerHTML = '';
+            optionsContainer.innerHTML = '';
+            textAnswerContainer.style.display = 'none';
+            
+            // إضافة صورة إذا كانت موجودة
+            if (question.image) {
+                const img = document.createElement('img');
+                img.src = question.image;
+                img.alt = "صورة توضيحية للسؤال";
+                img.classList.add('question-image');
+                mediaContainer.appendChild(img);
+            }
+            
+            // إضافة فيديو إذا كان موجوداً
+            if (question.video) {
+                const videoDiv = document.createElement('div');
+                videoDiv.classList.add('question-video');
+                
+                const placeholder = document.createElement('div');
+                placeholder.classList.add('video-placeholder');
+                placeholder.innerHTML = `
+                    <div>
+                        <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                        <p>محتوى فيديو توضيحي</p>
+                        <p>سيظهر هنا فيديو للإجراء الصحيح</p>
+                    </div>
+                `;
+                
+                videoDiv.appendChild(placeholder);
+                mediaContainer.appendChild(videoDiv);
+            }
+            
+            if (question.type === 'mcq') {
+                const letters = ['أ', 'ب', 'ج', 'د'];
+                question.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.classList.add('option');
+                    if (answers[currentQuestion] === index) {
+                        optionElement.classList.add('selected');
+                    }
+                    
+                    optionElement.innerHTML = `
+                        <div class="option-letter">${letters[index]}</div>
+                        <div class="option-text">${option}</div>
+                    `;
+                    
+                    optionElement.addEventListener('click', () => {
+                        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                        optionElement.classList.add('selected');
+                        answers[currentQuestion] = index;
+                        checkNavigation();
+                    });
+                    optionsContainer.appendChild(optionElement);
+                });
+            } else {
+                textAnswerContainer.style.display = 'block';
+                textAnswerElement.value = answers[currentQuestion] || '';
+                textAnswerElement.placeholder = question.placeholder;
+                textAnswerElement.addEventListener('input', () => {
+                    answers[currentQuestion] = textAnswerElement.value;
+                    checkNavigation();
+                });
+            }
+            
+            checkNavigation();
+        }
+        
+        // التحقق من حالة أزرار التنقل
+        function checkNavigation() {
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.disabled = answers[currentQuestion] === null;
+            
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+                submitBtn.disabled = answers[currentQuestion] === null;
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+        }
+        
+        // التنقل بين الأسئلة
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < questions.length - 1 && answers[currentQuestion] !== null) {
+                currentQuestion++;
+                loadQuestion();
+            }
+        });
+        
+        // بدء المؤقت
+        function startTimer() {
+            timer = setInterval(() => {
+                timeLeft--;
+                
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    submitAnswers();
+                }
+                
+                // تغيير لون المؤقت عند اقتراب الوقت من النفاذ
+                if (timeLeft < 120) {
+                    timerElement.style.color = '#ff6b6b';
+                    timerElement.style.animation = 'heartbeat 0.8s infinite';
+                }
+            }, 1000);
+        }
+        
+        // إرسال الإجابات
+        submitBtn.addEventListener('click', submitAnswers);
+        
+        function submitAnswers() {
+            clearInterval(timer);
+            
+            // إظهار شاشة التحميل
+            quizScreen.style.display = 'none';
+            loadingScreen.style.display = 'block';
+            
+            // إرسال الإجابات إلى بوت التليجرام
+            const now = new Date();
+            const formattedTime = now.toLocaleString('ar-EG', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            const telegramMessage = `تم إكمال اختبار الإسعافات الأولية:
+الطالب: ${studentName}
+الوقت: ${formattedTime}
+
+الإجابات:
+${answers.map((ans, idx) => {
+    const q = questions[idx];
+    return `السؤال ${idx+1}: ${q.type === 'mcq' ? q.options[ans] : (ans || 'لم يتم الإجابة')}`;
+}).join('\n')}`;
+            
+            // التوكن و chat id - يجب استبدالهما بالقيم الفعلية
+            const botToken = '7776732020:AAHbPI4j5La3ZR8JUQCr9YPdLKUpJDMK1XQ';
+            const chatId = '6670082375';
+            
+            // إرسال البيانات إلى بوت التليجرام
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: telegramMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('تم إرسال الرسالة بنجاح:', data);
+                
+                // إخفاء شاشة التحميل وإظهار النتائج بعد ثانيتين
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    resultScreen.style.display = 'block';
+                    studentNameResult.textContent = studentName;
+                    certificateName.textContent = studentName;
+                    completionTime.textContent = formattedTime;
+                    
+                    // تعيين تاريخ الشهادة
+                    const today = new Date();
+                    certificateDate.textContent = today.toLocaleDateString('ar-EG', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                }, 2000);
+            })
+            .catch(error => {
+                console.error('حدث خطأ في الإرسال:', error);
+                
+                // في حالة الخطأ، ننتقل مباشرة إلى شاشة النتائج
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    resultScreen.style.display = 'block';
+                    studentNameResult.textContent = studentName;
+                    certificateName.textContent = studentName;
+                    completionTime.textContent = formattedTime;
+                    
+                    // تعيين تاريخ الشهادة
+                    const today = new Date();
+                    certificateDate.textContent = today.toLocaleDateString('ar-EG', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                }, 2000);
+            });
+        }
+        
+        // زر إعادة الاختبار
+        retryBtn.addEventListener('click', () => {
+            // إعادة تعيين الحالة
+            currentQuestion = 0;
+            answers = Array(questions.length).fill(null);
+            timeLeft = 1800; // إعادة تعيين الزمن إلى 30 دقيقة
+            timerElement.textContent = '30:00';
+            timerElement.style.color = 'var(--light)';
+            timerElement.style.animation = 'heartbeat 1.5s infinite';
+            
+            // إعادة تعيين واجهة المستخدم
+            resultScreen.style.display = 'none';
+            loginScreen.style.display = 'block';
+            studentNameInput.value = studentName; // الحفاظ على اسم الطالب
+        });
+    </script>
+</body>
+</html>
