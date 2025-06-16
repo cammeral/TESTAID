@@ -15,16 +15,13 @@
         }
         
         :root {
-            --primary: #2a9d8f;
+            --primary: #e63946;
             --secondary: #1d3557;
-            --accent: #e63946;
+            --accent: #2a9d8f;
             --light: #f1faee;
             --dark: #1a1a2e;
             --warning: #e9c46a;
             --danger: #d90429;
-            --medical-blue: #457b9d;
-            --medical-red: #e63946;
-            --medical-green: #2a9d8f;
         }
         
         body {
@@ -60,7 +57,7 @@
         .shape:nth-child(1) {
             width: 180px;
             height: 180px;
-            background: var(--medical-green);
+            background: var(--primary);
             top: 10%;
             left: 15%;
             animation-delay: 0s;
@@ -69,7 +66,7 @@
         .shape:nth-child(2) {
             width: 250px;
             height: 250px;
-            background: var(--medical-blue);
+            background: var(--secondary);
             bottom: 20%;
             right: 10%;
             animation-delay: -5s;
@@ -111,17 +108,17 @@
         /* التصميم العام */
         .container {
             width: 95%;
-            max-width: 900px;
-            background: rgba(25, 25, 40, 0.92);
+            max-width: 850px;
+            background: rgba(25, 25, 40, 0.85);
             border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             padding: 35px;
             margin: 20px;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(69, 123, 157, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .container::before {
@@ -131,7 +128,7 @@
             left: 0;
             width: 100%;
             height: 8px;
-            background: linear-gradient(90deg, var(--medical-green), var(--medical-blue), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
             border-radius: 10px 10px 0 0;
         }
         
@@ -149,7 +146,7 @@
             font-weight: 900;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 1px;
-            background: linear-gradient(90deg, var(--light), var(--medical-green));
+            background: linear-gradient(90deg, var(--light), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -164,10 +161,10 @@
         .divider {
             width: 100px;
             height: 5px;
-            background: linear-gradient(90deg, var(--medical-green), var(--medical-blue));
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             margin: 20px auto;
             border-radius: 3px;
-            box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+            box-shadow: 0 2px 8px rgba(231, 57, 70, 0.3);
         }
         
         /* شاشة تسجيل الدخول */
@@ -178,16 +175,16 @@
         
         .logo {
             font-size: 6rem;
-            color: var(--medical-green);
+            color: var(--primary);
             margin: 25px 0;
             animation: pulse 2s infinite;
-            text-shadow: 0 0 20px rgba(42, 157, 143, 0.5);
+            text-shadow: 0 0 20px rgba(231, 57, 70, 0.5);
             transition: all 0.5s ease;
         }
         
         .logo:hover {
             transform: scale(1.05);
-            text-shadow: 0 0 30px rgba(42, 157, 143, 0.8);
+            text-shadow: 0 0 30px rgba(231, 57, 70, 0.8);
         }
         
         .input-group {
@@ -208,7 +205,7 @@
         .input-group input {
             width: 100%;
             padding: 18px 25px;
-            border: 2px solid rgba(69, 123, 157, 0.3);
+            border: 2px solid rgba(168, 218, 220, 0.3);
             border-radius: 15px;
             font-size: 1.2rem;
             transition: all 0.4s ease;
@@ -220,7 +217,7 @@
         
         .input-group input:focus {
             outline: none;
-            border-color: var(--medical-green);
+            border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.3);
             background: rgba(25, 35, 60, 0.7);
         }
@@ -231,7 +228,7 @@
         
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--medical-green), var(--medical-blue));
+            background: linear-gradient(135deg, var(--primary), var(--danger));
             color: white;
             border: none;
             padding: 18px 50px;
@@ -241,7 +238,7 @@
             transition: all 0.4s ease;
             font-weight: 800;
             margin-top: 15px;
-            box-shadow: 0 8px 25px rgba(42, 157, 143, 0.4);
+            box-shadow: 0 8px 25px rgba(231, 57, 70, 0.4);
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
@@ -255,7 +252,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--medical-blue), var(--medical-green));
+            background: linear-gradient(135deg, var(--danger), var(--primary));
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: -1;
@@ -263,7 +260,7 @@
         
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(42, 157, 143, 0.6);
+            box-shadow: 0 12px 30px rgba(231, 57, 70, 0.6);
         }
         
         .btn:hover::before {
@@ -272,7 +269,7 @@
         
         .btn:active {
             transform: translateY(2px);
-            box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
+            box-shadow: 0 4px 15px rgba(231, 57, 70, 0.4);
         }
         
         /* شاشة الاختبار */
@@ -289,7 +286,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(69, 123, 157, 0.3);
+            border: 2px solid rgba(168, 218, 220, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -301,7 +298,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, var(--medical-green), var(--accent));
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
         
         .timer-label {
@@ -316,7 +313,7 @@
             font-weight: 900;
             color: var(--light);
             animation: heartbeat 1.5s infinite;
-            text-shadow: 0 0 15px rgba(42, 157, 143, 0.7);
+            text-shadow: 0 0 15px rgba(231, 57, 70, 0.7);
             font-family: 'Courier New', monospace;
             letter-spacing: 2px;
         }
@@ -339,11 +336,11 @@
             left: 0;
             width: 8px;
             height: 100%;
-            background: linear-gradient(to bottom, var(--medical-green), var(--medical-blue));
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
         }
         
         .question-number {
-            color: var(--medical-green);
+            color: var(--accent);
             font-weight: 800;
             margin-bottom: 15px;
             font-size: 1.3rem;
@@ -365,49 +362,13 @@
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
-        .question-image {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
-            margin: 20px 0;
-            border: 2px solid rgba(69, 123, 157, 0.3);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .question-video {
-            width: 100%;
-            border-radius: 15px;
-            margin: 20px 0;
-            aspect-ratio: 16/9;
-            background: #1a1a2e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(69, 123, 157, 0.3);
-        }
-        
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1d3557, #14213d);
-            border-radius: 15px;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            padding: 20px;
-        }
-        
         .options-container {
             margin-top: 25px;
         }
         
         .option {
             background: rgba(40, 45, 70, 0.6);
-            border: 2px solid rgba(69, 123, 157, 0.3);
+            border: 2px solid rgba(168, 218, 220, 0.3);
             border-radius: 15px;
             padding: 18px 25px;
             margin-bottom: 15px;
@@ -424,12 +385,12 @@
         .option:hover {
             background: rgba(50, 55, 90, 0.8);
             transform: translateX(-8px);
-            border-color: var(--medical-green);
+            border-color: rgba(69, 123, 157, 0.5);
         }
         
         .option.selected {
             background: rgba(42, 157, 143, 0.3);
-            border-color: var(--medical-green);
+            border-color: var(--accent);
             font-weight: 700;
             color: white;
             transform: translateX(-10px);
@@ -441,7 +402,7 @@
             font-weight: 900;
             position: absolute;
             right: 20px;
-            color: var(--medical-green);
+            color: var(--accent);
             font-size: 1.4rem;
             animation: checkAppear 0.4s ease;
         }
@@ -458,13 +419,13 @@
             font-weight: 800;
             font-size: 1.2rem;
             color: var(--light);
-            border: 2px solid rgba(69, 123, 157, 0.3);
+            border: 2px solid rgba(168, 218, 220, 0.3);
         }
         
         .text-answer {
             width: 100%;
             padding: 20px;
-            border: 2px solid rgba(69, 123, 157, 0.3);
+            border: 2px solid rgba(168, 218, 220, 0.3);
             border-radius: 15px;
             font-size: 1.2rem;
             background: rgba(25, 35, 60, 0.5);
@@ -476,7 +437,7 @@
         
         .text-answer:focus {
             outline: none;
-            border-color: var(--medical-green);
+            border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.3);
             background: rgba(25, 35, 60, 0.7);
         }
@@ -539,7 +500,7 @@
         }
         
         #submitBtn {
-            background: linear-gradient(135deg, var(--medical-green), #218a7a);
+            background: linear-gradient(135deg, var(--accent), #218a7a);
         }
         
         #submitBtn::before {
@@ -554,7 +515,7 @@
         
         .result-icon {
             font-size: 8rem;
-            color: var(--medical-green);
+            color: var(--accent);
             margin: 30px 0;
             animation: bounce 1.5s infinite alternate;
             text-shadow: 0 0 25px rgba(42, 157, 143, 0.5);
@@ -587,7 +548,7 @@
         
         .highlight {
             font-weight: 800;
-            color: var(--medical-green);
+            color: var(--accent);
             text-shadow: 0 0 10px rgba(42, 157, 143, 0.5);
         }
         
@@ -654,75 +615,6 @@
             box-shadow: 0 4px 15px rgba(233, 196, 106, 0.4);
         }
         
-        /* شهادة الإتمام */
-        .certificate {
-            background: linear-gradient(135deg, #1d3557, #14213d);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 30px auto;
-            max-width: 800px;
-            text-align: center;
-            border: 3px solid var(--medical-green);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .certificate::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(42,157,143,0.1) 0%, rgba(25,25,40,0) 70%);
-            z-index: 0;
-        }
-        
-        .certificate h2 {
-            color: var(--medical-green);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        
-        .certificate h3 {
-            color: var(--light);
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .certificate p {
-            color: white;
-            font-size: 1.4rem;
-            margin: 15px 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .certificate .signature {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 50px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .signature div {
-            text-align: center;
-        }
-        
-        .signature div p:first-child {
-            border-top: 2px solid var(--medical-green);
-            padding-top: 10px;
-            display: inline-block;
-            margin-top: 30px;
-        }
-        
         /* شاشة التحميل */
         .loading-screen {
             display: none;
@@ -734,7 +626,7 @@
             width: 80px;
             height: 80px;
             border: 8px solid rgba(42, 157, 143, 0.2);
-            border-top: 8px solid var(--medical-green);
+            border-top: 8px solid var(--accent);
             border-radius: 50%;
             animation: spin 1.5s linear infinite;
             margin: 0 auto 30px;
@@ -796,7 +688,7 @@
                 font-size: 5rem;
             }
             
-            .btn, .nav-btn, .retry-btn {
+            .btn, .nav-btn {
                 padding: 16px 35px;
                 font-size: 1.1rem;
             }
@@ -816,14 +708,6 @@
             
             .result-message {
                 font-size: 1.9rem;
-            }
-            
-            .certificate h2 {
-                font-size: 2rem;
-            }
-            
-            .certificate h3 {
-                font-size: 1.5rem;
             }
             
             .container {
@@ -868,22 +752,6 @@
             
             .result-icon {
                 font-size: 6rem;
-            }
-            
-            .certificate {
-                padding: 25px 15px;
-            }
-            
-            .certificate h2 {
-                font-size: 1.8rem;
-            }
-            
-            .certificate h3 {
-                font-size: 1.3rem;
-            }
-            
-            .certificate p {
-                font-size: 1.1rem;
             }
         }
     </style>
@@ -941,9 +809,6 @@
                 </div>
                 <div class="question-text" id="questionText"></div>
                 
-                <!-- الصورة أو الفيديو سيتم إضافتها ديناميكيًا -->
-                <div id="mediaContainer"></div>
-                
                 <div class="options-container" id="optionsContainer"></div>
                 
                 <div id="textAnswerContainer" style="display: none;">
@@ -995,28 +860,6 @@
                 </div>
             </div>
             
-            <!-- شهادة الإتمام -->
-            <div class="certificate">
-                <h2>شهادة إتمام الاختبار</h2>
-                <h3>في الإسعافات الأولية المتقدمة</h3>
-                
-                <p>تم منح هذه الشهادة للسيد/ة</p>
-                <p class="highlight" id="certificateName"></p>
-                <p>تقديراً لإتمامه/ا بنجاح اختبار الإسعافات الأولية المتقدم</p>
-                <p>وذلك في تاريخ <span id="certificateDate" class="highlight"></span></p>
-                
-                <div class="signature">
-                    <div>
-                        <p>التوقيع</p>
-                        <p>مدير البرنامج الطبي</p>
-                    </div>
-                    <div>
-                        <p>التوقيع</p>
-                        <p>المشرف على الاختبار</p>
-                    </div>
-                </div>
-            </div>
-            
             <button class="retry-btn" id="retryBtn">
                 <i class="fas fa-redo"></i> إعادة الاختبار
             </button>
@@ -1024,15 +867,60 @@
     </div>
     
     <script>
-        // بيانات الأسئلة المتطورة مع وسائط متعددة
+        // بيانات الأسئلة
         const questions = [
+            // أسئلة الإجابة المفتوحة
             {
                 type: "open",
                 question: "ما هي الخطوات الخمس الأساسية للإسعافات الأولية؟",
-                placeholder: "اذكر الخطوات الخمس الأساسية",
-                image: "https://images.unsplash.com/photo-1588614959060-4d144f28a207?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-                correctAnswer: "1. تقييم الموقف 2. طلب المساعدة 3. فحص التنفس 4. فحص النبض 5. تقديم العناية اللازمة"
+                placeholder: "اذكر الخطوات الخمس الأساسية"
             },
+            {
+                type: "open",
+                question: "كيف تتصرف عند مواجهة شخص يعاني من نزيف حاد؟",
+                placeholder: "صف الإجراءات الصحيحة"
+            },
+            {
+                type: "open",
+                question: "ما هي علامات السكتة القلبية؟",
+                placeholder: "اذكر 4 علامات رئيسية"
+            },
+            {
+                type: "open",
+                question: "كيف يتم إجراء الإنعاش القلبي الرئوي للبالغين؟",
+                placeholder: "صف الخطوات بالتفصيل"
+            },
+            {
+                type: "open",
+                question: "ما هي الإجراءات اللازمة عند التعامل مع حرق من الدرجة الثانية؟",
+                placeholder: "اذكر 5 إجراءات أساسية"
+            },
+            {
+                type: "open",
+                question: "كيف تتعامل مع حالة اختناق لشخص بالغ؟",
+                placeholder: "صف تقنية هيمليك"
+            },
+            {
+                type: "open",
+                question: "ما هي أعراض الصدمة الإنتانية؟",
+                placeholder: "اذكر 5 أعراض"
+            },
+            {
+                type: "open",
+                question: "كيف تتصرف عند مواجهة شخص مصاب بنوبة صرع؟",
+                placeholder: "اذكر الإجراءات الصحيحة"
+            },
+            {
+                type: "open",
+                question: "ما هي خطوات التعامل مع الكسور المفتوحة؟",
+                placeholder: "صف الإجراءات خطوة بخطوة"
+            },
+            {
+                type: "open",
+                question: "ما هي علامات الجفاف الشديد؟",
+                placeholder: "اذكر 5 علامات"
+            },
+            // أسئلة الاختيار من متعدد
             {
                 type: "mcq",
                 question: "ما هو أول إجراء يجب اتخاذه عند الاقتراب من موقع حادث؟",
@@ -1042,8 +930,7 @@
                     "نقل المصاب فوراً",
                     "طلب المساعدة الطبية"
                 ],
-                correct: 1,
-                image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                correct: 1
             },
             {
                 type: "mcq",
@@ -1054,8 +941,7 @@
                     "140-160 ضغطة في الدقيقة",
                     "أكثر من 180 ضغطة في الدقيقة"
                 ],
-                correct: 1,
-                video: true
+                correct: 1
             },
             {
                 type: "mcq",
@@ -1066,8 +952,7 @@
                     "فاتر (30-35 درجة مئوية)",
                     "دافئ (40-45 درجة مئوية)"
                 ],
-                correct: 0,
-                image: "https://images.unsplash.com/photo-1595871465293-9ab6d1c6c9e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                correct: 0
             },
             {
                 type: "mcq",
@@ -1078,8 +963,7 @@
                     "60 دقيقة",
                     "90 دقيقة"
                 ],
-                correct: 0,
-                image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                correct: 0
             },
             {
                 type: "mcq",
@@ -1090,20 +974,7 @@
                     "الوضعية الجانبية",
                     "الجلوس مستقيماً"
                 ],
-                correct: 2,
-                image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                type: "open",
-                question: "كيف تتصرف عند مواجهة شخص يعاني من نزيف حاد؟",
-                placeholder: "صف الإجراءات الصحيحة",
-                image: "https://images.unsplash.com/photo-1583512603806-077ff240e2d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                type: "open",
-                question: "ما هي علامات السكتة القلبية؟",
-                placeholder: "اذكر 4 علامات رئيسية",
-                correctAnswer: "1. فقدان الوعي 2. توقف التنفس 3. فقدان النبض 4. ازرقاق الجلد"
+                correct: 2
             },
             {
                 type: "mcq",
@@ -1125,8 +996,7 @@
                     "تثبيت الطرف وطلب المساعدة",
                     "تشريط الجرح لإخراج السم"
                 ],
-                correct: 2,
-                image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                correct: 2
             },
             {
                 type: "mcq",
@@ -1160,45 +1030,6 @@
                     "40 درجة مئوية"
                 ],
                 correct: 2
-            },
-            {
-                type: "open",
-                question: "كيف يتم إجراء الإنعاش القلبي الرئوي للبالغين؟",
-                placeholder: "صف الخطوات بالتفصيل",
-                video: true
-            },
-            {
-                type: "open",
-                question: "ما هي الإجراءات اللازمة عند التعامل مع حرق من الدرجة الثانية؟",
-                placeholder: "اذكر 5 إجراءات أساسية",
-                image: "https://images.unsplash.com/photo-1623846547660-b9f6e24f1e7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                type: "open",
-                question: "كيف تتعامل مع حالة اختناق لشخص بالغ؟",
-                placeholder: "صف تقنية هيمليك",
-                video: true
-            },
-            {
-                type: "open",
-                question: "ما هي أعراض الصدمة الإنتانية؟",
-                placeholder: "اذكر 5 أعراض"
-            },
-            {
-                type: "open",
-                question: "كيف تتصرف عند مواجهة شخص مصاب بنوبة صرع؟",
-                placeholder: "اذكر الإجراءات الصحيحة"
-            },
-            {
-                type: "open",
-                question: "ما هي خطوات التعامل مع الكسور المفتوحة؟",
-                placeholder: "صف الإجراءات خطوة بخطوة",
-                image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-            },
-            {
-                type: "open",
-                question: "ما هي علامات الجفاف الشديد؟",
-                placeholder: "اذكر 5 علامات"
             }
         ];
         
@@ -1213,7 +1044,6 @@
         const timerElement = document.getElementById('timer');
         const questionNumberElement = document.getElementById('questionNumber');
         const questionTextElement = document.getElementById('questionText');
-        const mediaContainer = document.getElementById('mediaContainer');
         const optionsContainer = document.getElementById('optionsContainer');
         const textAnswerContainer = document.getElementById('textAnswerContainer');
         const textAnswerElement = document.getElementById('textAnswer');
@@ -1221,8 +1051,6 @@
         const nextBtn = document.getElementById('nextBtn');
         const submitBtn = document.getElementById('submitBtn');
         const studentNameResult = document.getElementById('studentNameResult');
-        const certificateName = document.getElementById('certificateName');
-        const certificateDate = document.getElementById('certificateDate');
         const completionTime = document.getElementById('completionTime');
         const retryBtn = document.getElementById('retryBtn');
         
@@ -1260,38 +1088,8 @@
             questionNumberElement.textContent = `السؤال ${currentQuestion + 1} من ${questions.length}`;
             questionTextElement.textContent = question.question;
             
-            // مسح الوسائط السابقة
-            mediaContainer.innerHTML = '';
             optionsContainer.innerHTML = '';
             textAnswerContainer.style.display = 'none';
-            
-            // إضافة صورة إذا كانت موجودة
-            if (question.image) {
-                const img = document.createElement('img');
-                img.src = question.image;
-                img.alt = "صورة توضيحية للسؤال";
-                img.classList.add('question-image');
-                mediaContainer.appendChild(img);
-            }
-            
-            // إضافة فيديو إذا كان موجوداً
-            if (question.video) {
-                const videoDiv = document.createElement('div');
-                videoDiv.classList.add('question-video');
-                
-                const placeholder = document.createElement('div');
-                placeholder.classList.add('video-placeholder');
-                placeholder.innerHTML = `
-                    <div>
-                        <i class="fas fa-video" style="font-size: 3rem; margin-bottom: 15px;"></i>
-                        <p>محتوى فيديو توضيحي</p>
-                        <p>سيظهر هنا فيديو للإجراء الصحيح</p>
-                    </div>
-                `;
-                
-                videoDiv.appendChild(placeholder);
-                mediaContainer.appendChild(videoDiv);
-            }
             
             if (question.type === 'mcq') {
                 const letters = ['أ', 'ب', 'ج', 'د'];
@@ -1434,16 +1232,7 @@ ${answers.map((ans, idx) => {
                     loadingScreen.style.display = 'none';
                     resultScreen.style.display = 'block';
                     studentNameResult.textContent = studentName;
-                    certificateName.textContent = studentName;
                     completionTime.textContent = formattedTime;
-                    
-                    // تعيين تاريخ الشهادة
-                    const today = new Date();
-                    certificateDate.textContent = today.toLocaleDateString('ar-EG', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    });
                 }, 2000);
             })
             .catch(error => {
@@ -1454,16 +1243,7 @@ ${answers.map((ans, idx) => {
                     loadingScreen.style.display = 'none';
                     resultScreen.style.display = 'block';
                     studentNameResult.textContent = studentName;
-                    certificateName.textContent = studentName;
                     completionTime.textContent = formattedTime;
-                    
-                    // تعيين تاريخ الشهادة
-                    const today = new Date();
-                    certificateDate.textContent = today.toLocaleDateString('ar-EG', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                    });
                 }, 2000);
             });
         }
